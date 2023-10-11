@@ -9,7 +9,7 @@ public class Order
   public OrderStatus? Status { get; set; }
 
   // TODO: Don't know if the ORM will allow for this
-  public ICollection<string>? OrderProductIDs { get; set; }
+  public ICollection<OrderProduct>? OrderProducts { get; set; }
 }
 
 public enum OrderStatus
