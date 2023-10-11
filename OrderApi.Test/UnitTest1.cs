@@ -1,4 +1,5 @@
 using Xunit;
+using OrderApi.Repositories;
 using OrderApi.Services;
 using OrderApi.Models;
 
@@ -20,7 +21,7 @@ public class OrderServiceTest
                 new OrderProduct() { OrderId = "order-id", ProductId = "product-id-3", Quantity = 3 },
             },
         };
-        var orderService = new OrderService();
+        var orderService = new OrderService(new OrderRepository());
 
         // act
         var createdOrder = orderService.Create(order);
