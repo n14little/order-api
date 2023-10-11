@@ -15,7 +15,7 @@ As you will see in my current solution, I have:
     - adjust service constructor to accept anything that implements the repository interface
     - implement that interface with a repository that actually stores the data in a database
     - consider the testing tools for c# and possibly adjust the service tests to simply ensure that they apply the business logic and then delegate to the repository for data storage (likely through some sort of test double).
-        - Python's Django uses a test database that makes the test double unnecessary. If c# has something similar then the test double is not necessary, but if it takes too long or is too flakey to do something similar then I would introduce a test double.
+        - Python's Django uses a test database that makes the test double unnecessary because it is fast enough and reliable. If c# has something similar then the test double is not necessary, but if it takes too long or is too flakey to do something similar then I would introduce a test double.
         - I like to exercise as much code as possible (to be as close to production as possible) in my tests which is why I prefer to avoid test doubles, but if exercising all codes takes too long or is too flakey to be reliable then I'm happy to introduce the test double.
     - I assume that I can use some sort of user identity middleware to authenticate and authorize as needed. This would allow my `List` controller action to only return orders for the authenticated customer.
 - I have proposed a normalized data model to make updates easy and save storage space. We can always denormalize later if necessary, for example, if joins are taking too long and introducing latency issues.
